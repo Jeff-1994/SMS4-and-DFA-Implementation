@@ -19,12 +19,12 @@ namespace SMS4
             SMS4 system = new SMS4();
 
             // Encryption Result :
-            //BigBlock cipher = system.encryption(plainText , key, false);
-            //cipher.showBigBlock();
+            // BigBlock cipher = system.encryption(plainText , key, true);
+            // cipher.showBigBlock("\n\n>>> Cipher Text :");
 
             // Decryption Result :
-            // BigBlock plain = system.decryption(cipherText , key, false);
-            // plain.showBigBlock();
+            BigBlock plain = system.decryption(cipherText , key, true);
+            plain.showBigBlock("\n\n>>> Plain Text :");
         }
     }
 }

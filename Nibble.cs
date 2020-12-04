@@ -348,7 +348,6 @@ namespace SMS4
         }
     }
 
-
     class Byte
     {
         Nibble[] _byte = new Nibble[2];
@@ -579,13 +578,14 @@ namespace SMS4
             String output = "";
             for (int i = 0; i < 4; i++)
             {
-                output += this.big_block[i].getBlockValues() + "\t";
+                output += this.big_block[i].getBlockValues();
             }
             return output;
         }
 
-        public void showBigBlock()
+        public void showBigBlock(String message)
         {
+            Console.WriteLine(message);
             Console.WriteLine(getBigBlockValues());
         }
 
@@ -665,9 +665,10 @@ namespace SMS4
 
             if(showEncDetails)
             {
-                for (int i = 0; i < 36; i++)
+                for (int i = 4; i < 36; i++)
                 {
-                    Console.WriteLine(("X_" + i) + " :   " + X[i].getBlockValues());
+                    Console.Write(("X_" + i) + " :   " + X[i].getBlockValues() + "\t\t");
+                    Console.WriteLine(("rk_" + (i-4)) + " :   " + rk[i-4].getBlockValues());
                 }
             }
 
@@ -698,9 +699,10 @@ namespace SMS4
 
             if(showDecDetails)
             {
-                for (int i = 0; i < 36; i++)
+                for (int i = 4; i < 36; i++)
                 {
-                    Console.WriteLine(("Y_" + i) + " :   " + Y[i].getBlockValues());
+                    Console.Write(("Y_" + i) + " :   " + Y[i].getBlockValues() + "\t\t");
+                    Console.WriteLine(("rk_" + (i-4)) + " :   " + rk[35-i].getBlockValues());
                 }
             }
 
